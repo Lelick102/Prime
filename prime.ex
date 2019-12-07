@@ -46,4 +46,27 @@ defmodule Prime do
     [n]
   end
 
+  def check_Prime_Numbers(n,m) when n<=m do
+		if(is_Prime(n)<2) do
+			IO.puts(n)
+		end
+		check_Prime_Numbers(n+1,m)
+	end
+	
+	def check_Prime_Numbers(n,m)  when n>0 do
+		0
+	end
+	
+	def async_word_count(n, m) do
+		process = self()
+		spawn(fn ->
+			send(process, {:result, check_Prime_Numbers(n,m)})
+		end)
+	end
+		
+	get_result = fn ->
+		receive do
+			{:result, result} -> result
+		end
+	end
 end
