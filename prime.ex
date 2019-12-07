@@ -70,7 +70,7 @@ defmodule Prime do
 	end
   end
 	
-  def divv(a,b//20) when a>0 do
+  def divv(a,b\\20) when a>0 do
     b/a
   end
 	  
