@@ -1,4 +1,4 @@
-defmodule Drop do
+defmodule PrimeFile do
 	@moduledoc """
 	Documentation for Drop.
 	"""
