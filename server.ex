@@ -12,7 +12,7 @@ defmodule Server do
   def handle_call(:start_task, _from, %{ref: nil} = state) do
     task =
       Task.Supervisor.async_nolink(RouterTasks, fn ->
-        ...
+        "..."
       end)
 
     {:reply, :ok, %{state | ref: task.ref}}
