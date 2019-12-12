@@ -43,8 +43,8 @@ defmodule Prime do
 		[n]
 	end
 	
-	def fileInit() do
-	  File.open!("tmp.txt", [:read, :utf8, :write])
+	def fileInit(path) do
+	  File.open!(path, [:read, :utf8, :write])
 	end
 	
 	def check_Prime_Numbers(n,m,file) when n<=m do
