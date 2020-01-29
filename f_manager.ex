@@ -1,4 +1,4 @@
-defmodule File_manager do
+defmodule F_manager do
 	def insert_file(name,context) do
 		try do
 			{:ok,file}=File.open(name,[:write])
@@ -73,9 +73,10 @@ defmodule File_manager do
 		end
 	end
 	
-	def create(name,context) do
+	def create(name,context,com_node) do
 		try do
-			
+			task=Task.Supervisor.async({RouterTasks,com_node},F_manager, :insert_file, [name,context])
+			Task.await(task)
 		rescue
 			error->error
 		end
