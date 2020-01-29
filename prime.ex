@@ -4,24 +4,8 @@ defmodule Prime do
 	"""
 
 	@doc """
-	Hello world.
-
-	## Examples
-
-		iex> Drop.hello()
-		:world
-
-		{:ok, file} = File.open("tmp", [:write])
-			z=n
-			IO.write(file, z)
-			File.close(file)
+	Prime
 	"""
-
-	def inputt() do
-		input = IO.gets("N > ")   
-		r=String.trim(input) 
-		String.to_integer(r)
-	end
   
 	def is_Prime(limit) do   
 		is_Prime(2,limit)  
@@ -39,14 +23,6 @@ defmodule Prime do
 		0
 	end 
 	
-	def add_list(n) do
-		[n]
-	end
-	
-	def fileInit(path) do
-	  File.open!(path, [:read, :utf8, :write])
-	end
-	
 	def check_Prime_Numbers(n,m,file) when n<=m do
 		if(is_Prime(n)<2) do
 			IO.puts(file, n)
@@ -59,16 +35,4 @@ defmodule Prime do
 		true
 	end
 	
-	def async_word_count(n, m,file) do
-		process = self()
-		spawn(fn ->
-			send(process, {:result, check_Prime_Numbers(n,m,file)})
-		end)
-	end
-		
-	get_result = fn ->
-		receive do
-			{:result, result} -> result
-		end
-	end
 end

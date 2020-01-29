@@ -11,4 +11,3 @@ defmodule StartTask do
       [true]
    end
 end
-
