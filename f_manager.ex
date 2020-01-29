@@ -75,9 +75,10 @@ defmodule F_manager do
 	
 	def create(name,context,com_node) do
 		try do
-		    data=devide_str(context)
-			task=Task.Supervisor.async({RouterTasks,com_node},F_manager, :insert_file, [name,context])
-			Task.await(task)
+			for item <- devide_str(context) do
+				task=Task.Supervisor.async({RouterTasks,com_node},F_manager, :insert_file, [name,context])
+				Task.await(task)
+			end
 		rescue
 			error->error
 		end
