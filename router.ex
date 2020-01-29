@@ -17,7 +17,7 @@ defmodule Router do
     if elem(entry, 1) == node() do
       apply(mod, fun, args)
     else
-      {KV.RouterTasks, elem(entry, 1)}
+      {RouterTasks, elem(entry, 1)}
       |> Task.Supervisor.async(KV.Router, :route, [bucket, mod, fun, args])
       |> Task.await()
     end
