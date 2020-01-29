@@ -1,7 +1,7 @@
 defmodule F_manager do
 	def insert_file(name,context) do
 		try do
-			{:ok,file}=File.open(name,[:write])
+			{:ok,file}=File.open(name,[:append])
 			IO.write(file, context)
 			File.close(file)
 			true
@@ -75,6 +75,7 @@ defmodule F_manager do
 	
 	def create(name,context,com_node) do
 		try do
+		    data=devide_str(context)
 			task=Task.Supervisor.async({RouterTasks,com_node},F_manager, :insert_file, [name,context])
 			Task.await(task)
 		rescue
