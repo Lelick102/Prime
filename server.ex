@@ -44,16 +44,4 @@ defmodule Server do
 		end
 	end
 	
-	def get_file(name) do 
-		try do
-			nodes=["r","n"]
-			data=get_data(context)
-			for item <- ["r","n"] do
-				Kernel.inspect(Router.route(item, F_manager, :get_data, [name]))
-		    end	
-		rescue
-			error->error
-		end
-	end
-
 end
