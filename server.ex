@@ -25,7 +25,7 @@ defmodule Server do
 	def if_exist(name) do
 		l=[]
 	    for item <- ["r","n"] do
-			[l|Router.route(item, F_manager, :is_file_existense, [name])]
+			l++[Router.route(item, F_manager, :is_file_existense, [name])]
 			l
 		end
 	end
