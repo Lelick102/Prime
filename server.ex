@@ -3,18 +3,14 @@ defmodule Server do
 		try do
 		    count=0
 			l=["r","n"]
-			ln=length(l)
 			for item <- l do
-			    s=String.slice context, (String.length(context)-round(String.length(context)/ln)), (String.length(context)-round(String.length(context)/ln)
+			    s=String.slice context, count, (String.length(context)-round(String.length(context)/length(l)))
 				Router.route(item, F_manager, :insert_file, [name,s])
+				count=count + (String.length(context)-round(String.length(context)/length(l)))
 			end
 		rescue
 			error->error
 		end
-	end
-	
-	def chunk_bits(binary, n) do
-		for << chunk::size(n) <- binary >>, do: <<chunk::size(n)>>
 	end
 	
 	def delete(name) do
@@ -37,6 +33,10 @@ defmodule Server do
 		for item <- ["r","n"] do
 			Router.route(item, F_manager, :get_file, [name])
 		end
+	end
+	
+	def chunk_bits(binary, n) do
+		for << chunk::size(n) <- binary >>, do: <<chunk::size(n)>>
 	end
 
 end
