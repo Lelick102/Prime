@@ -2,7 +2,7 @@ defmodule Server do
 	def create(name,context) do
 		try do
 			nodes=["r","n"]
-			data=get_data(context)
+			data=Kernel.inspect(get_data(context))
 			start_create(nodes,name,data,0)			
 		rescue
 			error->error
