@@ -10,7 +10,7 @@ defmodule Server do
 	end
 	
     def start_Task(n,name,context) do
-		Router.route(n, F_manager, :insert_file, [name,context])
+		data=Router.route(n, F_manager, :insert_file, [name,context])
 	end
    
 	def start_create([head|tail],name,[h|t],count) do  
@@ -46,10 +46,11 @@ defmodule Server do
 	
 	def get_file(name) do 
 		try do
-			#data=['h','h']#get_data(name)
-			#for item <- data do
-				Router.route("c", F_manager, :insert_file, [name,"g"])
-			#end	
+			nodes=["r","n"]
+			data=get_data(context)
+			for item <- ["r","n"] do
+				Kernel.inspect(Router.route(item, F_manager, :get_data, [name]))
+		    end	
 		rescue
 			error->error
 		end
