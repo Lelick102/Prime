@@ -2,8 +2,6 @@ defmodule Server do
 	def create(name,context) do
 		try do
 			nodes=["r","n"]
-			{:ok, file}=File.open("buf", [:write])
-			IO.write(get_data(context))
 			data=get_data(context)
 			start_create(nodes,name,data,0)			
 		rescue
