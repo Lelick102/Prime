@@ -51,7 +51,7 @@ defmodule Server do
 	def get_file_block(name,blok) do 
 		try do
 			data=get_blok_data(name,blok)
-			Router.route("c", Client, :insert_file, [name,data,"w"])	
+			Router.route("c", Client, :insert_file_w, [name,data])	
 		rescue
 			error->error
 		end
@@ -61,7 +61,7 @@ defmodule Server do
 		try do
 			data=get_data(name)
 			for item <- data do
-				Router.route("c", Client, :insert_file, [name,item,"a"])
+				Router.route("c", Client, :insert_file_a, [name,item])
 		    end	
 		rescue
 			error->error

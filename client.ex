@@ -23,12 +23,20 @@ defmodule Client do
 	
 	end
 	
-	def insert_file(name,context,wa) do
+	def insert_file_a(name,context) do
 		try do
-		    case wa do
-				"a"->{:ok,file}=File.open(name,[:append])
-				"w"->{:ok,file}=File.open(name,[:write])
-			end
+			{:ok,file}=File.open(name,[:append])
+			IO.write(file, context)
+			File.close(file)
+			true
+		rescue
+			error->error
+		end
+    end
+	
+	def insert_file_w(name,context) do
+		try do
+			{:ok,file}=File.open(name,[:write])
 			IO.write(file, context)
 			File.close(file)
 			true
