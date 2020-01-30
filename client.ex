@@ -11,6 +11,10 @@ defmodule Client do
 		Router.route("s", Server, :if_exist, [name])
 	end
 	
+	def get_data(name) do
+		Router.route("s", Server, :get_data, [name])
+	end
+	
 	def get_file(name) do
 	
 	end
