@@ -18,7 +18,7 @@ defmodule Server do
    
 	def start_create([head|tail],b,e,file) do 
 		start_Task(head, name, context)
-		start_create(tail,name,context]
+		start_create(tail,name,context)
 	end
 
    def start_create([],name,context) do
