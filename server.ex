@@ -5,8 +5,8 @@ defmodule Server do
 			l=["r","n"]
 			ln=length(l)
 			for item <- l do
-			    s=String.slice context, (String.length(context)-round(String.length(context)/ln)), (String.length(context)-round(String.length(context)/length(l)))
 				Router.route(item, F_manager, :insert_file, [name,s])
+				s=String.slice context, (String.length(context)-round(String.length(context)/ln)), (String.length(context)-round(String.length(context)/length(l)))
 				ln=ln-1
 			end
 		rescue
