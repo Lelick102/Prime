@@ -16,7 +16,7 @@ defmodule Server do
 		Router.route(n, F_manager, :insert_file, [name,context])
 	end
    
-	def start_create([head|tail],b,e,file) do 
+	def start_create([head|tail],name,context) do 
 		start_Task(head, name, context)
 		start_create(tail,name,context)
 	end
