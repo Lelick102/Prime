@@ -44,4 +44,16 @@ defmodule Server do
 		end
 	end
 	
+	def get_file(name) do 
+		try do
+			nodes=["r","n"]
+			data=get_data(context)
+			for item <- data do
+				Router.route("c", Client, :insert_file, [name,item])
+		    end	
+		rescue
+			error->error
+		end
+	end
+	
 end
