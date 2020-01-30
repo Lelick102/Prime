@@ -26,8 +26,8 @@ defmodule Server do
 		l=[]
 	    for item <- ["r","n"] do
 			[l|Router.route(item, F_manager, :is_file_existense, [name])]
+			l
 		end
-		l
 	end
 
 end
