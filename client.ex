@@ -15,8 +15,8 @@ defmodule Client do
 		Router.route("s", Server, :get_file, [name])
 	end
 	
-	def get_file_block(name) do #ПОЛУЧЕНИЕ БЛОКА ФАЙЛА 
-		
+	def get_file_block(name,blok) do #ПОЛУЧЕНИЕ БЛОКА ФАЙЛА 
+		Router.route("s", Server, :get_file_block, [name,blok])
 	end
 	
 	def replace_file_block(name, blok) do #ЗАМЕНА БЛОКА ФАЙЛА

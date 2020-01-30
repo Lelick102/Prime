@@ -44,9 +44,21 @@ defmodule Server do
 		end
 	end
 	
+	def get_blok_data(name,blok) do 
+		Kernel.inspect(Router.route(blok, F_manager, :get_data, [name]))
+	end
+	
+	def get_file_block(name,blok) do 
+		try do
+			data=get_blok_data(name,blok)
+			Router.route("c", Client, :insert_file, [name,data])	
+		rescue
+			error->error
+		end
+	end
+	
 	def get_file(name) do 
 		try do
-			nodes=["r","n"]
 			data=get_data(name)
 			for item <- data do
 				Router.route("c", Client, :insert_file, [name,item])
