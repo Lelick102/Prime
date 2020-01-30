@@ -12,10 +12,9 @@ defmodule Server do
 		Router.route(n, F_manager, :insert_file, [name,context])
 	end
    
-	def start_create([head|tail],name,context) do 
-		start_Task(head, name, context)
+	def start_create([head|tail],name,context, count\\0) do 
+		start_Task(head, name, String.slice context, count .. length([head|tail))
 		start_create(tail,name,context)
-		
 	end
 
 	def start_create([],name,context) do
