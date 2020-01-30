@@ -2,7 +2,7 @@ defmodule Server do
 	def create(name,context) do
 		try do
 		    count=0
-			l=["r","r"]
+			l=["r","n"]
 			for item <- l do
 			    #s=String.slice context, count, context/length
 				Router.route(item, F_manager, :insert_file, [name,context])
