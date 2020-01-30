@@ -9,11 +9,11 @@ defmodule Server do
 	end
 	
     def start_Task(n,name,context) do
-		Router.route(n, F_manager, :insert_file, [name,context])
+		data=Router.route(n, F_manager, :insert_file, [name,context])
 	end
    
 	def start_create([head|tail],name,context, count) do  
-		start_Task(head, name, context)
+		start_Task(head, name,context,data)#???????????????????????????????????????????????????
 		start_create(tail,name,context,count)
 	end
 
@@ -34,6 +34,12 @@ defmodule Server do
 	def if_exist(name) do #DONE ITS GREAT
 	    for item <- ["r","n"] do
 			Router.route(item, F_manager, :is_file_existense, [name])
+		end
+	end
+	
+	def get_data(name) do 
+	    for item <- ["r","n"] do
+			Router.route(item, F_manager, :get_data, [name])
 		end
 	end
 	

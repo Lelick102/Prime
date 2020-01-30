@@ -2,7 +2,7 @@ defmodule F_manager do
 	def insert_file(name,context) do
 		try do
 			if File.exists?(context) do
-				{:ok,data}=File.read(context)
+				{:ok,data}=File.read!(context)
 				{:ok,file}=File.open(name,[:append])
 				IO.write(file, data)
 				File.close(file)
@@ -17,6 +17,19 @@ defmodule F_manager do
 		end
     end
 
+	def get_data(context) do
+		try do
+			if File.exists?(context) do
+				{:ok,data}=File.read!(context)
+				data
+			else
+				context
+			end
+		rescue
+			error->error
+		end
+	end
+	
     def get_file(name, begin_block, end_block) do
 		try do
 		    IO.inspect(File.read!(name))
