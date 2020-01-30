@@ -12,6 +12,7 @@ defmodule F_manager do
 
     def get_file(name, begin_block, end_block) do
 		try do
+		    IO.inspect(File.read!(name))
 			true
 		rescue
 			error->error

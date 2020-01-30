@@ -4,8 +4,9 @@ defmodule Server do
 		    count=0
 			l=["r","n"]
 			for item <- l do
-			    #s=String.slice context, count, context/length
-				Router.route(item, F_manager, :insert_file, [name,context])
+			    s=String.slice context, count, (String.length(context)-Integer.parse(String.length(context)/length(l)))
+				Router.route(item, F_manager, :insert_file, [name,s])
+				count+=(String.length(context)-Integer.parse(String.length(context)/length(l))
 			end
 		rescue
 			error->error
@@ -23,10 +24,14 @@ defmodule Server do
 	end
 	
 	def if_exist(name) do
-		l=[]
 	    for item <- ["r","n"] do
-			l++[Router.route(item, F_manager, :is_file_existense, [name])]
-			l
+			Router.route(item, F_manager, :is_file_existense, [name])
+		end
+	end
+	
+	def get_file(name) do
+		for item <- ["r","n"] do
+			Router.route(item, F_manager, :get_file, [name])
 		end
 	end
 
