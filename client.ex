@@ -12,7 +12,7 @@ defmodule Client do
 	end
 	
 	def get_data(name) do
-		Router.route("s", Server, :get_data, [name])
+		IO.inspect(Router.route("s", Server, :get_data, [name]))
 	end
 	
 	def get_file(name) do
