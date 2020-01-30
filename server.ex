@@ -2,12 +2,7 @@ defmodule Server do
 	def create(name,context) do
 		try do
 			l=["r","n"]
-			if if_exist(context) do
-				{data}=File.read!(context)
-				start_create(l,name,data,0)
-			else
-				start_create(l,name,context,0)
-			end
+			start_create(l,name,context,0)			
 		rescue
 			error->error
 		end

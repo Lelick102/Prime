@@ -1,8 +1,14 @@
 defmodule F_manager do
 	def insert_file(name,context) do
 		try do
+			if is_file_existense(context) do
+				{data}=File.read!(context)
+			else
+				data=context
+			end
+				
 			{:ok,file}=File.open(name,[:append])
-			IO.write(file, context)
+			IO.write(file, data)
 			File.close(file)
 			true
 		rescue
