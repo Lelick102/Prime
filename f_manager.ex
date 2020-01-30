@@ -1,6 +1,7 @@
 defmodule F_manager do
 	def insert_file(name,context) do
 		try do
+		    data=""
 			if is_file_existense(context) do
 				{data}=File.read!(context)
 			else
