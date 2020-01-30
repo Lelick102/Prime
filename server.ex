@@ -14,7 +14,7 @@ defmodule Server do
 	
 	def delete(name) do
 		try do
-			for item <- ["r","r"] do
+			for item <- ["r","n"] do
 				Router.route(item, F_manager, :delete_file, [name])
 			end
 		rescue
