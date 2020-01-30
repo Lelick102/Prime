@@ -46,7 +46,7 @@ defmodule Server do
 	
 	def get_file(name) do 
 		try do
-			data=get_data(name)
+			data=Kernel.inspect(get_data(name))
 			for item <- data do
 				Router.route("c", F_manager, :insert_file, [name,item])
 			end	
