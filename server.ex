@@ -21,5 +21,13 @@ defmodule Server do
 			error->error
 		end
 	end
+	
+	def if_exist(name) do
+		l=[]
+	    for item <- ["r","n"] do
+			[l|Router.route(item, F_manager, :is_file_existense, [name])]
+		end
+		l
+	end
 
 end

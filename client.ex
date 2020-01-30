@@ -6,4 +6,8 @@ defmodule Client do
 	def delete(name) do
 		Router.route("s", Server, :delete, [name])
 	end
+	
+	def if_exist(name) do
+		Router.route("s", Server, :if_exist, [name])
+	end
 end
