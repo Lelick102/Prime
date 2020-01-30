@@ -3,7 +3,6 @@ defmodule Server do
 		try do
 		    count=0
 			l=["r","r"]
-		    data=F_manager.devide_str(context)
 			for item <- l do
 			    #s=String.slice context, count, context/length
 				Router.route(item, F_manager, :insert_file, [name,context])
