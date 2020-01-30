@@ -11,7 +11,7 @@ defmodule Server do
 	
 	def delete(name) do
 		try do
-			task=Task.Supervisor.async({RouterTasks,:"root@172.17.0.5"}, F_manager, :insert_file, [name,context])
+			task=Task.Supervisor.async({RouterTasks,:"root@172.17.0.5"}, F_manager, :insert_file, [name])
 			Task.await(task)
 		rescue
 			error->error
