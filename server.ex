@@ -18,8 +18,7 @@ defmodule Server do
 	end
    
 	def start_create([head|tail],name,context) do 
-		#l=length[head|tail]
-		s=String.slice context, count, (String.length(context)-round(String.length(context)/length(l)))
+		context=String.slice context, count, (String.length(context)-round(String.length(context)/length([head|tail])))
 		start_Task(head, name, context)
 		start_create(tail,name,context)
 		
