@@ -1,10 +1,10 @@
 defmodule Server do
 	def create(name,context) do
 		try do
+		    count=0
 		    data=F_manager.devide_str(context)
 			for item <- ["r","r"] do
 				Router.route(item, F_manager, :insert_file, [name,context])
-				data
 			end
 		rescue
 			error->error
@@ -13,8 +13,9 @@ defmodule Server do
 	
 	def delete(name) do
 		try do
-			task=Task.Supervisor.async({RouterTasks,:"root@172.17.0.5"}, F_manager, :insert_file, [name])
-			Task.await(task)
+			for item <- ["r","r"] do
+				Router.route(item, F_manager, :delete_file, [name])
+			end
 		rescue
 			error->error
 		end
