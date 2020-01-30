@@ -3,7 +3,7 @@ defmodule Router do
     [{?a..?c, :"client@172.17.0.3"},
      {?d..?n, :"node1@172.17.0.4"},
 	 {?o..?r, :"root@172.17.0.5"},
-	 {?s..?z, :"server@172.17.0.6"}
+	 {?s..?z, :"server@172.17.0.2"}
 	]
   end
   
