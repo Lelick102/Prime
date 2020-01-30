@@ -2,7 +2,7 @@ defmodule Server do
 	def create(name,context) do
 		try do
 			nodes=["r","n"]
-			data=Kernel.inspect(get_data(context))
+			data=get_data(context)
 			start_create(nodes,name,data,0)			
 		rescue
 			error->error
@@ -40,7 +40,7 @@ defmodule Server do
 	
 	def get_data(name) do 
 	    for item <- ["r","n"] do
-			Router.route(item, F_manager, :get_data, [name])
+			Kernel.inspect(Router.route(item, F_manager, :get_data, [name]))
 		end
 	end
 	
