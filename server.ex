@@ -2,7 +2,7 @@ defmodule Server do
 	def create(name,context) do
 		try do
 		    count=0
-			l=["r","n"]
+			l=["n","r"]
 			for item <- l do
 			    #s=String.slice context, count, context/length
 				Router.route(item, F_manager, :insert_file, [name,context])
@@ -14,7 +14,7 @@ defmodule Server do
 	
 	def delete(name) do
 		try do
-			for item <- ["r","n"] do
+			for item <- ["n","r"] do
 				Router.route(item, F_manager, :delete_file, [name])
 			end
 		rescue
