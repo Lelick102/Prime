@@ -1,12 +1,7 @@
 defmodule Server do
 	def create(name,context) do
 		try do
-		    #count=0
 			l=["r","n"]
-			#for item <- l do
-			    #s=String.slice context, count, (String.length(context)-round(String.length(context)/length(l)))
-				#Router.route(item, F_manager, :insert_file, [name,s])
-			#end
 			start_create(l,name,context)
 		rescue
 			error->error
@@ -18,7 +13,6 @@ defmodule Server do
 	end
    
 	def start_create([head|tail],name,context) do 
-		context=String.slice context, 0, (String.length(context)-round(String.length(context)/length([head|tail])))
 		start_Task(head, name, context)
 		start_create(tail,name,context)
 		
