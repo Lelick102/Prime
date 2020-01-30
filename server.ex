@@ -3,7 +3,7 @@ defmodule Server do
 		try do
 			l=["r","n"]
 			if File.exists?(context) do
-				{:ok,data}=File.read(context)
+				{data}=File.read!(context)
 				start_create(l,name,data,0)
 			else
 				start_create(l,name,context,0)
