@@ -2,7 +2,7 @@ defmodule Server do
 	def create(name,context) do
 		try do
 			l=["r","n"]
-			start_create(l,name,context)
+			start_create(l,name,context,0)
 		rescue
 			error->error
 		end
@@ -12,12 +12,12 @@ defmodule Server do
 		Router.route(n, F_manager, :insert_file, [name,context])
 	end
    
-	def start_create([head|tail],name,context, count\\0) do 
+	def start_create([head|tail],name,context, count) do 
 		start_Task(head, name, fn->String.slice(context, count .. length([head|tail])) end)
 		start_create(tail,name,context)
 	end
 
-	def start_create([],name,context,count\\0) do
+	def start_create([],name,context,count) do
 		[true]
 	end
 	
