@@ -14,7 +14,7 @@ defmodule F_manager do
 		try do
 			if File.exists?(context) do
 				{:ok,data}=File.read!(context)
-				Kernel.Inspect(data))
+				Kernel.inspect(data)
 			else
 				context
 			end
