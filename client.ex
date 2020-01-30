@@ -23,9 +23,12 @@ defmodule Client do
 	
 	end
 	
-	def insert_file(name,context) do
+	def insert_file(name,context,wa) do
 		try do
-			{:ok,file}=File.open(name,[:append])
+		    case wa do
+				"a"->{:ok,file}=File.open(name,[:append])
+				"w"->{:ok,file}=File.open(name,[:write])
+			end
 			IO.write(file, context)
 			File.close(file)
 			true

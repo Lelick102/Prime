@@ -21,24 +21,7 @@ defmodule F_manager do
 		rescue
 			error->error
 		end
-	end
-	
-    def get_file(name, begin_block, end_block) do
-		try do
-		    IO.inspect(File.read!(name))
-			true
-		rescue
-			error->error
-		end
-    end
-	
-	def replace_file_block(name, context, begin_block, end_block) do
-		try do
-			true
-		rescue
-			error->error
-		end
-    end   
+	end 
 	
     def delete_file(name) do
 		try do
@@ -64,31 +47,4 @@ defmodule F_manager do
 			error->error
 		end
     end
-	
-	def file_read_block(input, start, langth) do
-		try do
-			{:ok, file}=:file.open(input, [:binary])
-			{:ok,data}=:file.pread(file,start,langth)
-			:file.close(file)
-			true
-		rescue
-			error->error
-		end
-	end
-	
-	def file_write_block(data, output_file) do
-		try do
-			{:ok,out}=:file.open(output_file,[:append])
-			IO.write(out,data)
-			:file.close(out)
-			true
-		rescue
-			error->error
-		end
-	end
-	
-	def devide_str(context) do
-		for <<x::binary-10 <- context>>, do: x
-	end
-	
 end
