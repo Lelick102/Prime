@@ -3,7 +3,7 @@ defmodule Server do
 		try do
 			nodes=["r","n"]
 			data=get_data(context)
-			start_create(nodes,name,data,0)			
+			#start_create(nodes,name,data,0)			
 		rescue
 			error->error
 		end
@@ -18,7 +18,7 @@ defmodule Server do
 		start_create(tail, name, tail,count)
 	end
 
-	def start_create([],name,[],count) do
+	def start_create([],name,context,count) do
 		[true]
 	end
 	
