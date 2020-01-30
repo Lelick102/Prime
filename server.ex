@@ -46,10 +46,10 @@ defmodule Server do
 	
 	def get_file(name) do 
 		try do
-			data=['h','h']#get_data(name)
-			for item <- data do
-				Router.route("c", F_manager, :insert_file, [name,item])
-			end	
+			#data=['h','h']#get_data(name)
+			#for item <- data do
+				Router.route("c", F_manager, :insert_file, [name,"g"])
+			#end	
 		rescue
 			error->error
 		end
