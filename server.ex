@@ -1,9 +1,11 @@
 defmodule Server do
 	def create(name,context) do
 		try do
+		    data=devide_str(context)
 			for item <- ["r","n"] do
 				Router.route("r", F_manager, :insert_file, [name,context])
 			end
+			data
 		rescue
 			error->error
 		end
