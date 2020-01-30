@@ -4,9 +4,9 @@ defmodule Server do
 		    count=0
 			l=["r","n"]
 			for item <- l do
-			    s=String.slice context, count, (String.length(context)-round(String.length(context)/length(l)))
-				Router.route(item, F_manager, :insert_file, [name,s])
-				count=count+(String.length(context)-round(String.length(context)/length(l)))
+			    #s=String.slice context, count, (String.length(context)-round(String.length(context)/length(l)))
+				Router.route(item, F_manager, :insert_file, [name,context])
+				#count=count+(String.length(context)-round(String.length(context)/length(l)))
 			end
 		rescue
 			error->error
