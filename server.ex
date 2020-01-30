@@ -40,7 +40,7 @@ defmodule Server do
 	
 	def get_data(name) do 
 	    for item <- ["r","n"] do
-			Kernel.inspect(Router.route(item, F_manager, :get_data, [name]))
+			Router.route(item, F_manager, :get_data, [name])
 		end
 	end
 	
