@@ -13,7 +13,7 @@ defmodule Server do
 	end
    
 	def start_create([head|tail],name,context, count\\0) do 
-		start_Task(head, name, String.slice context, count .. length([head|tail))
+		start_Task(head, name, String.slice context, count .. length([head|tail]))
 		start_create(tail,name,context)
 	end
 
