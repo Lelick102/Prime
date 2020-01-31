@@ -65,7 +65,7 @@ defmodule Server do
 		try do
 			data=get_data(name)
 			for item <- data do
-				Router.route("c", Client, :insert_file_a, [name,delete_match(delete_match(item,"%MatchError{term: "),"}")])
+				Router.route("c", Client, :insert_file_a, [name,delete_match(delete_match(item,"%MatchError{term: "),"}))")])
 		    end	
 		rescue
 			error->error
