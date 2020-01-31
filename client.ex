@@ -9,16 +9,11 @@ defmodule Client do
 	
 	def if_exist(name) do #ПРОВЕРКА НА СУЩЕСТВОВАНИЕ ФАЙЛА В ФАЙЛОВОЙ СИСТЕМЕ 
 		data=Router.route("s", Server, :if_exist, [name])
-		count=0
-		for item <- data do
-			if item do count=count+1 end
+		case count_num(data,0) do
+			0 -> "Файла с таким именем не существует."
+			1 -> "Файл существует только на одном узле, данные частично утрачены!!!"
+			2 -> "Файл с именем #{name} найден."
 		end
-		count
-		#case count do
-			#0 -> "Файла с таким именем не существует."
-			#1 -> "Файл существует только на одном узле, данные частично утрачены!!!"
-			#2 -> "Файл с именем #{name} найден."
-		#end
 	end
 	
 	def get_file(name) do #ПОЛУЧЕНИЕ ФАЙЛА ЦЕЛИКОМ
@@ -33,7 +28,7 @@ defmodule Client do
 	
 	end
 	
-	def insert_file_a(name,context) do
+	def insert_file_a(name,context) do #ДОБАВЛЕНИЕ В ФАЙЛ НЕКОТОРОГО КОНТЕКСТА
 		try do
 			{:ok,file}=File.open(name,[:append])
 			IO.write(file, context)
@@ -44,7 +39,7 @@ defmodule Client do
 		end
     end
 	
-	def insert_file_w(name,context) do
+	def insert_file_w(name,context) do #ЗАПИСЬ В ФАЙЛ НЕКОТОРОГО КОНТЕКСТА
 		try do
 			{:ok,file}=File.open(name,[:write])
 			IO.write(file, context)
@@ -55,7 +50,7 @@ defmodule Client do
 		end
     end
 	
-	def get_data(context) do
+	def get_data(context) do #ПОЛУЧЕНИЕ ДАННЫХ ИЗ ФАЙЛ ЕСЛИ ОН СУЩЕСТВУЕТ, ЕСЛИ НЕ СУЩЕСТВУЕТ, ПОЛУЧАЕТ КОНТЕКСТ
 		try do
 			if File.exists?(context) do
 				{:ok,data}=File.read(context)
@@ -67,4 +62,17 @@ defmodule Client do
 			error->error
 		end
 	end 
+	
+	def count_n([head|tail], count) do #ПОДСЧЕТ КОЛИЧЕСТВА ФАЙЛОВ В ФАЙЛОВОЙ СИСТЕМЕ
+		if head count=count+1
+	end
+   
+	def count_num([head|tail],count) do  
+		count_n([head|tail],count)
+		count_num(tail,count)
+	end
+
+	def count_num([],count) do
+		count
+	end
 end
