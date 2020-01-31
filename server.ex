@@ -3,14 +3,14 @@ defmodule Server do
 		try do
 			nodes=["r","n"]
 			data=get_data_client(context)
-			start_create(nodes,name,data,0)			
+			start_create(nodes,name,5,0)			
 		rescue
 			error->error
 		end
 	end
 	
     def start_Task(n,name,context) do
-		data=Router.route(n, F_manager, :insert_file, [name,context])
+		Router.route(n, F_manager, :insert_file, [name,context])
 	end
    
 	def start_create([head|tail],name,data,count) do  
