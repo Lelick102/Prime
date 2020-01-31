@@ -3,7 +3,7 @@ defmodule Server do
 		try do
 			nodes=["r","n"]
 			data=get_data_client(context)
-			start_create(nodes,name,delete_match(delete_match(data,"%MatchError{term: "),"{"),0)			
+			start_create(nodes,name,delete_match(data,"%MatchError{term: "),0)			
 		rescue
 			error->error
 		end
@@ -65,7 +65,7 @@ defmodule Server do
 		try do
 			data=get_data(name)
 			for item <- data do
-				Router.route("c", Client, :insert_file_a, [name,delete_match(delete_match(item,"%MatchError{term: "),"}))")])
+				Router.route("c", Client, :insert_file_a, [name,delete_match(item,"%MatchError{term: ")])
 		    end	
 		rescue
 			error->error
