@@ -2,7 +2,7 @@ defmodule Server do
 	def create(name,context) do
 		try do
 			nodes=["r","n"]
-			data=get_data_client()
+			data=get_data_client(name)
 			start_create(nodes,name,data,0)			
 		rescue
 			error->error
@@ -44,8 +44,8 @@ defmodule Server do
 		end
 	end
 	
-	def get_data_client() do 
-		Kernel.inspect(Router.route("c", Client, :summ, []))
+	def get_data_client(name) do 
+		Kernel.inspect(Router.route("c", Client, :get_data, [name]))
 	end
 	
 	def get_blok_data(name,blok) do 

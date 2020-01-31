@@ -45,15 +45,11 @@ defmodule Client do
 		end
     end
 	
-	def summ() do
-		2+3
-	end
-	
 	def get_data(context) do
 		try do
 			if File.exists?(context) do
 				{:ok,data}=File.read!(context)
-				data
+				Kernel.inspect(data)
 			else
 				context
 			end
