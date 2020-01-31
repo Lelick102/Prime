@@ -8,7 +8,16 @@ defmodule Client do
 	end
 	
 	def if_exist(name) do #ПРОВЕРКА НА СУЩЕСТВОВАНИЕ ФАЙЛА В ФАЙЛОВОЙ СИСТЕМЕ 
-		Router.route("s", Server, :if_exist, [name])
+		data=Router.route("s", Server, :if_exist, [name])
+		count=0
+		for item <- data do
+			if item do count=count+1 end
+		end
+		case count do
+			0 -> "Файла с таким именем не существует."
+			1 -> "Файл существует только на одном узле, данные частично утрачены!!!"
+			2 -> "Файл с именем #{name} найден."
+		end
 	end
 	
 	def get_file(name) do #ПОЛУЧЕНИЕ ФАЙЛА ЦЕЛИКОМ
