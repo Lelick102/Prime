@@ -44,8 +44,8 @@ defmodule Server do
 		end
 	end
 	
-	def get_data_client(name) do 
-		Kernel.inspect(Router.route("c", Client, :get_data, [name]))
+	def get_data_client() do 
+		Kernel.inspect(Router.route("c", Client, :summ, []))
 	end
 	
 	def get_blok_data(name,blok) do 
