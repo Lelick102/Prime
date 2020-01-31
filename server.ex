@@ -15,7 +15,7 @@ defmodule Server do
    
 	def start_create([head|tail],name,data,count) do  
 		start_Task(head, name, String.slice(data,count,round(String.length(data)/length([head|tail]))))
-		start_create(tail, name, data, count+round(String.length(data)/length([head|tail])),String.length(data))
+		start_create(tail, name, data, count+round(String.length(data)/length([head|tail])))
 	end
 
 	def start_create([],name,data,count) do
