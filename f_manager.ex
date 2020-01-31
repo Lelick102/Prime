@@ -13,8 +13,8 @@ defmodule F_manager do
 	def get_data(context) do
 		try do
 			if File.exists?(context) do
-				{:ok,data}=File.read(context)
-				data
+				{:ok,file}=File.open(context)
+				data=IO.read(file,:all)
 			else
 				context
 			end
@@ -22,23 +22,6 @@ defmodule F_manager do
 			error->error
 		end
 	end
-	
-    def get_file(name, begin_block, end_block) do
-		try do
-		    IO.inspect(File.read!(name))
-			true
-		rescue
-			error->error
-		end
-    end
-	
-	def replace_file_block(name, context, begin_block, end_block) do
-		try do
-			true
-		rescue
-			error->error
-		end
-    end   
 	
     def delete_file(name) do
 		try do
