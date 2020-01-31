@@ -71,4 +71,9 @@ defmodule Server do
 			error->error
 		end
 	end
+	
+	def delete_match(data, patern) do
+		base = String.length(prefix)
+		String.slice(full, base, String.length(full) - base)
+	end
 end

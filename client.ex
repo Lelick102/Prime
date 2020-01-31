@@ -48,8 +48,9 @@ defmodule Client do
 	def get_data(context) do
 		try do
 			if File.exists?(context) do
-				{:ok,data}=File.read!(context)
-				Kernel.inspect(data)
+				#{:ok,data}=File.read!(context)
+				#Kernel.inspect(data
+				IO.read(context)
 			else
 				context
 			end
