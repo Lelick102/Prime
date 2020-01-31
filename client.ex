@@ -49,8 +49,9 @@ defmodule Client do
 		try do
 			if File.exists?(context) do
 				#{:ok,data}=File.read!(context)
-				#Kernel.inspect(data
-				IO.read(context)
+				#Kernel.inspect(data)
+				data=IO.read(context)
+				data
 			else
 				context
 			end
