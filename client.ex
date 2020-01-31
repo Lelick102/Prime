@@ -65,12 +65,13 @@ defmodule Client do
 		end
 	end 
 	
-	def count_n([head|tail], count) do #ПОДСЧЕТ КОЛИЧЕСТВА ФАЙЛОВ В ФАЙЛОВОЙ СИСТЕМЕ
-		if head==true do count=count+1 end
+	def count_n(head,count) do #ПОДСЧЕТ КОЛИЧЕСТВА ФАЙЛОВ В ФАЙЛОВОЙ СИСТЕМЕ
+		if head do count=count+1 end
+		count
 	end
    
 	def count_num([head|tail],count) do  
-		count_n([head|tail],count)
+		count_n(head,count)
 		count_num(tail,count)
 	end
 
