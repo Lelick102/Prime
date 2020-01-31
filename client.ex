@@ -50,7 +50,8 @@ defmodule Client do
 			if File.exists?(context) do
 				#{:ok,data}=File.read!(context)
 				#Kernel.inspect(data)
-				data=IO.read(context)
+				{:ok,data}=File.open(context,[:read])
+				data=IO.read(:ok)
 				data
 			else
 				context
