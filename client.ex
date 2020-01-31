@@ -15,7 +15,6 @@ defmodule Client do
 			1 -> "Файл существует только на одном узле, данные частично утрачены!!!"
 			2 -> "Файл с именем #{name} найден."
 		end
-		count
 	end
 	
 	def get_file(name) do #ПОЛУЧЕНИЕ ФАЙЛА ЦЕЛИКОМ
@@ -64,10 +63,6 @@ defmodule Client do
 			error->error
 		end
 	end 
-	
-	def count_n(head,count) do #ПОДСЧЕТ КОЛИЧЕСТВА ФАЙЛОВ В ФАЙЛОВОЙ СИСТЕМЕ
-		1
-	end
    
 	def count_num([head|tail],count) do  
 	    if head do count_num(tail,count+1) 
