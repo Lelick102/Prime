@@ -2,7 +2,7 @@ defmodule F_manager do
 	def insert_file(name,context) do
 		try do
 			{:ok,file}=File.open(name,[:write])
-			IO.write(file, context)
+			IO.binwrite(file, context)
 			File.close(file)
 			true
 		rescue

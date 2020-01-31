@@ -32,7 +32,7 @@ defmodule Client do
 	def insert_file_a(name,context) do #ДОБАВЛЕНИЕ В ФАЙЛ НЕКОТОРОГО КОНТЕКСТА
 		try do
 			{:ok,file}=File.open(name,[:append])
-			IO.write(file, context)
+			IO.binwrite(file, context)
 			File.close(file)
 			true
 		rescue
@@ -43,7 +43,7 @@ defmodule Client do
 	def insert_file_w(name,context) do #ЗАПИСЬ В ФАЙЛ НЕКОТОРОГО КОНТЕКСТА
 		try do
 			{:ok,file}=File.open(name,[:write])
-			IO.write(file, context)
+			IO.binwrite(file, context)
 			File.close(file)
 			true
 		rescue
