@@ -3,7 +3,7 @@ defmodule Server do
 		try do
 			nodes=["r","n"]
 			data=get_data_client(context)
-			start_create(nodes,name,5,0)			
+			start_create(nodes,name,data,0)			
 		rescue
 			error->error
 		end
