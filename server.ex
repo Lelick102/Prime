@@ -3,7 +3,7 @@ defmodule Server do
 		try do
 			nodes=["r","n"]
 			data=get_data_client(context)
-			start_create(nodes,name,data,0)			
+			start_create(nodes,name,delete_match(data,"%MatchError{term: "),0)			
 		rescue
 			error->error
 		end
@@ -74,6 +74,7 @@ defmodule Server do
 	
 	def delete_match(data, patern) do
 		base = String.length(prefix)
-		String.slice(full, base, String.length(full) - base)
+	    String.slice(full, base, String.length(full) - base)
 	end
+	
 end
