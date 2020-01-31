@@ -73,8 +73,8 @@ defmodule Server do
 	end
 	
 	def delete_match(data, patern) do
-		base = String.length(prefix)
-	    String.slice(full, base, String.length(full) - base)
+		base = String.length(patern)
+	    String.slice(data, base, String.length(data) - base)
 	end
 	
 end
