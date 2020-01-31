@@ -71,7 +71,7 @@ defmodule Client do
    
 	def count_num([head|tail],count) do  
 	    if head do count_num(tail,count+1) 
-		else count_num(tail,count)
+		else count_num(tail,count) end
 	end
 
 	def count_num([],count) do
