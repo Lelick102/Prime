@@ -44,4 +44,17 @@ defmodule Client do
 			error->error
 		end
     end
+	
+	def get_data(context) do
+		try do
+			if File.exists?(context) do
+				{:ok,data}=File.read!(context)
+				data
+			else
+				context
+			end
+		rescue
+			error->error
+		end
+	end 
 end
