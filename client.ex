@@ -9,11 +9,13 @@ defmodule Client do
 	
 	def if_exist(name) do #ПРОВЕРКА НА СУЩЕСТВОВАНИЕ ФАЙЛА В ФАЙЛОВОЙ СИСТЕМЕ 
 		data=Router.route("s", Server, :if_exist, [name])
-		case count_num(data,0) do
+		count=count_num(data,0)
+		case count do
 			0 -> "Файла с таким именем не существует."
 			1 -> "Файл существует только на одном узле, данные частично утрачены!!!"
 			2 -> "Файл с именем #{name} найден."
 		end
+		count
 	end
 	
 	def get_file(name) do #ПОЛУЧЕНИЕ ФАЙЛА ЦЕЛИКОМ
