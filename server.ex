@@ -2,7 +2,7 @@ defmodule Server do
 	def create(name,context) do
 		try do
 			nodes=["r","n"]
-			data=get_data_client(name)
+			data=get_data_client(context)
 			start_create(nodes,name,data,0)			
 		rescue
 			error->error
