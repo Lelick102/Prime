@@ -53,7 +53,6 @@ defmodule Client do
 				File.stream!(context)
 				|> Stream.into(data)
 				|> Stream.run()
-				data
 			else
 				context
 			end
