@@ -51,7 +51,6 @@ defmodule Client do
 				#{:ok,data}=File.read!(context)
 				#Kernel.inspect(data)
 				{:ok,data}=File.open(context,[:read])
-				data=IO.read(ok)
 				data
 			else
 				context
