@@ -1,6 +1,6 @@
 defmodule Router do
    def table do
-    [{?a..?c, :"client@172.17.0.3"},
+    [{?a..?c, :"client@172.17.0.6"},
      {?d..?n, :"node1@172.17.0.4"},
 	 {?o..?r, :"root@172.17.0.5"},
 	 {?s..?z, :"server@172.17.0.2"}
