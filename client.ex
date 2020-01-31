@@ -31,7 +31,7 @@ defmodule Client do
 	
 	def insert_file_a(name,context) do #ДОБАВЛЕНИЕ В ФАЙЛ НЕКОТОРОГО КОНТЕКСТА
 		try do
-			{:ok,file}=File.open(name,[:binary,:append])
+			{:ok,file}=File.open(name,[:append])
 			IO.write(file, context)
 			File.close(file)
 			true
@@ -42,7 +42,7 @@ defmodule Client do
 	
 	def insert_file_w(name,context) do #ЗАПИСЬ В ФАЙЛ НЕКОТОРОГО КОНТЕКСТА
 		try do
-			{:ok,file}=File.open(name,[:write, :binary])
+			{:ok,file}=File.open(name,[:write])
 			IO.write(file, context)
 			File.close(file)
 			true
@@ -54,9 +54,8 @@ defmodule Client do
 	def get_data(context) do #ПОЛУЧЕНИЕ ДАННЫХ ИЗ ФАЙЛ ЕСЛИ ОН СУЩЕСТВУЕТ, ЕСЛИ НЕ СУЩЕСТВУЕТ, ПОЛУЧАЕТ КОНТЕКСТ
 		try do
 			if File.exists?(context) do
-				{:ok,file}=File.open(context)
-				data=IO.read(file,:all)
-				File.close(file)
+				{:ok,data}=File.read(context)
+				data
 			else
 				context
 			end
@@ -74,9 +73,9 @@ defmodule Client do
 		count
 	end
 	
-	def rewrite_file(name) do
+	def rewrite_file(name)
 		File.rm(name)
-		{:ok, file}=File.open(name, [:binary,:write])
+		{:ok, file}=File.open(name, [:write])
 		File.close(file)
 	end
 end
