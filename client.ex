@@ -50,7 +50,6 @@ defmodule Client do
 			if File.exists?(context) do
 				{:ok,data}=File.read!(context)
 				Kernel.inspect(data)
-				data
 			else
 				context
 			end
