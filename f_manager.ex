@@ -13,8 +13,8 @@ defmodule F_manager do
 	def get_data(context) do
 		try do
 			if File.exists?(context) do
-				{:ok,data}=File.read!(context)
-				IO.inspect(data)
+				{:ok,data}=File.read(context)
+				data
 			else
 				context
 			end
