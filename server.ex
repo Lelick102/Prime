@@ -51,6 +51,7 @@ defmodule Server do
 	
 	def get_file(name) do 
 		data=get_data(name)
+		Router.route("c", Client, :rewrite_file, [name])
 		for item <- data do
 			Router.route("c", Client, :insert_file_a, [name,item])
 		end	

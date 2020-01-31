@@ -72,4 +72,10 @@ defmodule Client do
 	def count_num([],count) do
 		count
 	end
+	
+	def rewrite_file(name)
+		File.rm(name)
+		{:ok, file}=File.open(name, [:write])
+		File.close(file)
+	end
 end
