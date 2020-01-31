@@ -1,7 +1,7 @@
 defmodule F_manager do
 	def insert_file(name,context) do
 		try do
-			{:ok,file}=File.open(name,[:binary])
+			{:ok,file}=File.open(name,[:binary,:write])
 			IO.write(file, context)
 			File.close(file)
 			true
