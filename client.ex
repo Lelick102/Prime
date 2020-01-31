@@ -54,8 +54,8 @@ defmodule Client do
 	def get_data(context) do #ПОЛУЧЕНИЕ ДАННЫХ ИЗ ФАЙЛ ЕСЛИ ОН СУЩЕСТВУЕТ, ЕСЛИ НЕ СУЩЕСТВУЕТ, ПОЛУЧАЕТ КОНТЕКСТ
 		try do
 			if File.exists?(context) do
-				{:ok,data}=File.read(context)
-				data
+				{:ok,file}=File.open(context)
+				data=IO.read(file,:all)
 			else
 				context
 			end
