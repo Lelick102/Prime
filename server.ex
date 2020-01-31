@@ -45,7 +45,7 @@ defmodule Server do
 	end
 	
 	def get_data_client(name) do 
-		Kernel.inspect(Router.route("c", F_manager, :get_data, [name]))
+		Kernel.inspect(Router.route("c", Client, :get_data, [name]))
 	end
 	
 	def get_blok_data(name,blok) do 
