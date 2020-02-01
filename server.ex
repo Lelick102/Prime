@@ -46,7 +46,8 @@ defmodule Server do
 	
 	def get_file_block(name,blok) do 
 		data=get_blok_data(name,blok)
-		Router.route("c", Client, :insert_file_w, [name,data])	
+		#Router.route("c", Client, :insert_file_w, [name,data])
+		IO.inspect(data)
 	end
 	
 	def get_file(name) do 
