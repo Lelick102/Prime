@@ -14,9 +14,8 @@ defmodule F_manager do
 		try do
 			if File.exists?(context) do
 				{:ok,file}=File.open(context)
-				data=IO.read(file,:all)
+				|>data=IO.read(file,:all)
 				|>File.close(file)
-				|>data
 			else
 				context
 			end
