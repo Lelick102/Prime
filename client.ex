@@ -55,8 +55,9 @@ defmodule Client do
 		try do
 			if File.exists?(context) do
 				{:ok,file}=File.open(context)
-				|>IO.read(file,:all)
-				|>File.close(file)
+				data=IO.read(file,:all)
+				File.close(file)
+				data
 			else
 				context
 			end
