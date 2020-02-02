@@ -25,8 +25,8 @@ defmodule Client do
 		Router.route("s", Server, :get_file_block, [name,blok])
 	end
 	
-	def replace_file_block(name, blok) do #ЗАМЕНА БЛОКА ФАЙЛА
-	
+	def replace_file_block(name, block, context) do #ЗАМЕНА БЛОКА ФАЙЛА
+		Router.route("s", Server, :replace_file_block, [name, block, context])
 	end
 	
 	def insert_file_a(name,context) do #ДОБАВЛЕНИЕ В ФАЙЛ НЕКОТОРОГО КОНТЕКСТА

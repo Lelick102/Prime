@@ -25,6 +25,21 @@ defmodule F_manager do
 		end
 	end
 	
+	def rewrite_block(name, block, context) do
+		try do
+			if File.exists?(name) do
+				{:ok,file}=File.open(name, [:write]
+				IO.binwrite(file,context)
+				File.close(file)
+				true
+			else
+				IO.write("Файла не существует")
+			end
+		rescue
+			error->error
+		end
+	end
+	
     def delete_file(name) do
 		try do
 			if  File.exists?(name) do

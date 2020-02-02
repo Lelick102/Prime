@@ -57,4 +57,8 @@ defmodule Server do
 			Router.route("c", Client, :insert_file_a, [name,item])
 		end	
 	end
+	
+	def replace_file_block(name, block, context) do
+		Router.route(blok, F_manager, :rewrite_block, [name, block, context])
+	end
 end
