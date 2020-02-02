@@ -28,7 +28,7 @@ defmodule F_manager do
 	def rewrite_block(name, context) do
 		try do
 			if File.exists?(name) do
-				{:ok,file}=File.open(name, [:write]
+				{:ok,file}=File.open(name, [:write])
 				IO.binwrite(file,context)
 				File.close(file)
 				true
