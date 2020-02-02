@@ -32,8 +32,6 @@ defmodule F_manager do
 				IO.binwrite(file,context)
 				File.close(file)
 				true
-			else
-				IO.write("Файла не существует")
 			end
 		rescue
 			error->error
