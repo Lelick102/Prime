@@ -25,7 +25,7 @@ defmodule F_manager do
 		end
 	end
 	
-	def rewrite_block(name, block, context) do
+	def rewrite_block(name, context) do
 		try do
 			if File.exists?(name) do
 				{:ok,file}=File.open(name, [:write]

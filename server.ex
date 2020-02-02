@@ -59,6 +59,6 @@ defmodule Server do
 	end
 	
 	def replace_file_block(name, block, context) do
-		Router.route(blok, F_manager, :rewrite_block, [name, block, context])
+		Router.route(block, F_manager, :rewrite_block, [name, context])
 	end
 end
